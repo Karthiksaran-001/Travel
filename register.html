@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration</title>
+    <style> 
+        body {
+          background-image: url("img_tree.gif"), url("paper.gif");
+          background-color: #cccccc;
+        }
+    
+        </style>
+</head>
+<body>
+
+    <h1 style='text-align:center'>Sign Up Here</h1>
+    <form action='register' method="post">
+        {% csrf_token %}
+        <h3>First Name : </h3></h3><input type="text" name="firstname" placeholder="Enter Your Name"><br><br>
+        <h3>Last Name : </h3><input type="text" name="lastname" placeholder="Enter Your Name"><br><br>
+        <h3>User Name : </h3> <input type="text" name="username" placeholder="Enter Your Name"><br><br>
+        <h3> MailId : </h3><input type="email" name="email" placeholder="Enter Your Valid Mail id"><br><br>
+        <h3>Password : </h3><input type="password" name="password1" placeholder="Enter Your Password"><br><br>
+        <h3>Confirm Password : </h3><input type="password" name="password2" placeholder="Confirm Your Password"><br><br>
+        <input  type='submit' value="Signup">
+       
+    </form>
+    <h3 style='text-align:center'>If You Already Have an Account  <a href="login">Signin</a></h3>
+    <div>
+        {% for message in messages %}
+            <h3> {{message}}  </h3>
+        {% endfor %}
+    </div>
+</body>
+</html>

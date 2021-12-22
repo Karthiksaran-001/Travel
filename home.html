@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Screen</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <h1>Welcome To The Page Mr. {{name}}</h1>
+    <h2>{{course}}</h2>
+    <h2> Adding Two Number : </h2>
+    <form action="add" method="Post">
+        {% csrf_token %}
+        <p>Enter Number 1 :</p>
+        <input type='number' name='num1' placeholder="Enter Number"> <br><br>
+        <p>Enter Number 2 :</p>
+        <input type='number' name='num2' placeholder="Enter Number"> <br><br>
+        <input type="submit" value="Calculate">
+    </form><br>
+    <h3 style="text-align:center">{{result}}</h3>
+
+    <h2>Login Site </h2>
+    <form action="login" method="POST">
+        {% csrf_token %}
+        <p>Enter UserId:</p>
+        <input type='text' name='user' placeholder="Enter Your UserId"> <br><br>
+        <p>Enter Number 2 :</p>
+        <input type='Password' name='passwd' placeholder="Enter Your Password"> <br><br>
+        <input type="submit" value="Submit">
+    </form><br>
+    <h3 style ="text-align:center">{{error}}</h3>
+
+    {% for i in lst %}
+        <p>{{i}}</p>
+    {% endfor %}
+    {% endblock %}
+    
+   
+</body>
+</html>
